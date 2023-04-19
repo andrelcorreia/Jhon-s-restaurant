@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  database:
+    image: postgres
+    container_name: equibalance
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=equibalance
+      - POSTGRES_PASSWORD=!&9276BSvu%JGU4fQKr
+      - POSTGRES_DB=equibalance
