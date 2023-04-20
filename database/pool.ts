@@ -1,6 +1,6 @@
 const { Client } = require("pg");
 
-const client = new Client({
+export const client = new Client({
   host: "localhost",
   port: 5432,
   database: "equibalance",
