@@ -5,18 +5,18 @@ import { UserRepository } from "../../repositories/userRepository";
 const userRepository = new UserRepository();
 
 export class CreateUsersUseCase {
-  async execute({ name, email, password }: createUser): Promise<AppResponse> {
+  async execute({ name, email, password }: createUser) {
     const emailExists = await userRepository.listByEmail(email);
 
     if (emailExists) {
-      throw new AppError({ message: "Email já em uso" });
+      return { message: "Email já em uso" };
     }
 
     await userRepository.create({ name, email, password });
 
-    return new AppResponse({
+    return {
       message: "Usuário criado com sucesso!",
       data: emailExists,
-    });
+    };
   }
 }

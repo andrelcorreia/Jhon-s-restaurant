@@ -16,8 +16,6 @@ export interface createUser {
 export interface updateUser {
   id: string;
   name: string;
-  email: string;
-  password: string;
 }
 
 export interface inactiveUser {

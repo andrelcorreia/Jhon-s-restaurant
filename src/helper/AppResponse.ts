@@ -1,19 +1,18 @@
 type AppResponseParams = {
+  statusCode?: number;
   message?: string;
   data?: unknown;
-  transactionId?: string;
 };
 
 export default class AppResponse {
   public readonly message: string | undefined;
-  public readonly transactionId: string | undefined;
   public readonly data: unknown;
   public readonly result = "success";
-  public readonly statusCode = 200;
+  public readonly statusCode: number;
 
-  constructor({ message, transactionId, data }: AppResponseParams) {
+  constructor({ statusCode, message, data }: AppResponseParams) {
+    this.statusCode = statusCode;
     this.message = message;
-    this.transactionId = transactionId;
     this.data = data;
   }
 }
